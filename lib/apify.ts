@@ -1,8 +1,12 @@
 // lib/apify.ts
 // Server-side Apify REST API integration (token never exposed to browser)
+import { getSettings } from './store'
 
-const APIFY_TOKEN = process.env.APIFY_API_TOKEN!
 const APIFY_BASE = 'https://api.apify.com/v2'
+
+function getToken() {
+  return getSettings().apifyToken || process.env.APIFY_API_TOKEN || ''
+}
 
 export const ACTORS = {
   crawl:     'apify/website-content-crawler',
@@ -19,8 +23,9 @@ interface RunOptions {
 
 // Start an actor run (async — returns run ID)
 export async function startActorRun(opts: RunOptions): Promise<string> {
+  const token = getToken()
   const res = await fetch(
-    `${APIFY_BASE}/acts/${encodeURIComponent(opts.actorId)}/runs?token=${APIFY_TOKEN}`,
+    `${APIFY_BASE}/acts/${encodeURIComponent(opts.actorId)}/runs?token=${token}`,
     {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -43,8 +48,9 @@ export async function getRunStatus(runId: string): Promise<{
   status: string
   datasetId?: string
 }> {
+  const token = getToken()
   const res = await fetch(
-    `${APIFY_BASE}/actor-runs/${runId}?token=${APIFY_TOKEN}`
+    `${APIFY_BASE}/actor-runs/${runId}?token=${token}`
   )
   if (!res.ok) throw new Error(`Failed to get run status`)
   const data = await res.json()
@@ -56,12 +62,14 @@ export async function getRunStatus(runId: string): Promise<{
 
 // Get dataset items from a completed run
 export async function getDatasetItems(datasetId: string, limit = 100): Promise<unknown[]> {
+  const token = getToken()
   const res = await fetch(
-    `${APIFY_BASE}/datasets/${datasetId}/items?token=${APIFY_TOKEN}&limit=${limit}&clean=true`
+    `${APIFY_BASE}/datasets/${datasetId}/items?token=${token}&limit=${limit}&clean=true`
   )
   if (!res.ok) throw new Error(`Failed to get dataset items`)
   return res.json()
 }
+
 
 // Run actor synchronously and return items (for fast actors like SERP)
 export async function runActorSync(opts: RunOptions): Promise<unknown[]> {

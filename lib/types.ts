@@ -15,6 +15,8 @@ export interface AuditReport {
   auditType: AuditType
   keyword?: string
   location?: string
+  prompt?: string
+  competitors?: string[]
   status: 'pending' | 'running' | 'completed' | 'failed'
   createdAt: string
   completedAt?: string
@@ -40,6 +42,9 @@ export interface AuditResults {
   pagespeed?: PagespeedResult
   issues?: SEOIssue[]
   summary?: AuditSummary
+  thirtyDayPlan?: string[]
+  sixtyDayPlan?: string[]
+  ninetyDayPlan?: string[]
 }
 
 export interface CrawlResult {
@@ -105,4 +110,5 @@ export interface AuditSummary {
   }
   topIssues?: string[]
   healthScore?: number
+  executiveSummary?: string
 }

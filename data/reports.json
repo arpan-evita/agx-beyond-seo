@@ -1,0 +1,433 @@
+[
+  {
+    "url": "https://gvcaudit.com/",
+    "auditType": "full",
+    "keyword": "ca firm in gurgaon",
+    "location": "Gurgaon, India",
+    "status": "completed",
+    "createdBy": "admin",
+    "createdByName": "Admin",
+    "id": "f13ff9c2-4a44-4968-8f03-083ea42b622c",
+    "createdAt": "2026-06-15T22:26:33.803Z",
+    "apifyRunId": "W4nN0ZMoAeeu2HhFF",
+    "completedAt": "2026-06-15T22:31:12.942Z",
+    "results": {
+      "crawl": [
+        {
+          "url": "https://gvcaudit.com/",
+          "title": "Chartered Accountant in Gurgaon for Startups & MSMEs | GVC Audit",
+          "h1": "",
+          "metaDescription": "Growth-focused Chartered Accountant in Gurgaon for MSMEs & startups. GVC Audit provides expert GST filing, tax planning, audit & assurance, and virtual CFO services backed by 20+ years of experience. Book a free consultation to secure your finances.",
+          "wordCount": 527,
+          "statusCode": 200,
+          "canonical": "https://gvcaudit.com/",
+          "indexable": true,
+          "internalLinks": 0
+        },
+        {
+          "url": "https://gvcaudit.com/about-us/",
+          "title": "About Us - gvcaudit.com",
+          "h1": "",
+          "metaDescription": "Industry Experience",
+          "wordCount": 341,
+          "statusCode": 200,
+          "canonical": "https://gvcaudit.com/about-us/",
+          "indexable": true,
+          "internalLinks": 0
+        },
+        {
+          "url": "https://gvcaudit.com/services/audit-assurance-services/",
+          "title": "Audit and assurance services",
+          "h1": "",
+          "metaDescription": "Gupta Varundeep & Co. (GVC Audit) offers end-to-end audit and assurance services in Gurgaon and across India, designed for MSMEs, startups, companies, and",
+          "wordCount": 407,
+          "statusCode": 200,
+          "canonical": "https://gvcaudit.com/services/audit-assurance-services/",
+          "indexable": true,
+          "internalLinks": 0
+        },
+        {
+          "url": "https://gvcaudit.com/services/accounting-business-outsourcing/",
+          "title": "Accounting & Business Outsourcing - gvcaudit.com",
+          "h1": "",
+          "metaDescription": "Gupta Varundeep & Co. (GVC Audit) offers structured, reliable, and compliance-ready accounting outsourcing services for startups, MSMEs, and service",
+          "wordCount": 450,
+          "statusCode": 200,
+          "canonical": "https://gvcaudit.com/services/accounting-business-outsourcing/",
+          "indexable": true,
+          "internalLinks": 0
+        },
+        {
+          "url": "https://gvcaudit.com/services/",
+          "title": "Services - gvcaudit.com",
+          "h1": "",
+          "metaDescription": "From tax strategy and startup registration to audits, compliance, and CFO services, we deliver expert financial and advisory support at whatever stage you are",
+          "wordCount": 201,
+          "statusCode": 200,
+          "canonical": "https://gvcaudit.com/services/",
+          "indexable": true,
+          "internalLinks": 0
+        },
+        {
+          "url": "https://gvcaudit.com/services/business-setup-roc-compliance/",
+          "title": "Business Setup & ROC Compliance - gvcaudit.com",
+          "h1": "",
+          "metaDescription": "Gupta Varundeep & Co. (GVC Audit) is a trusted company registration consultant in Gurgaon, offering end-to-end business setup and ROC compliance services",
+          "wordCount": 402,
+          "statusCode": 200,
+          "canonical": "https://gvcaudit.com/services/business-setup-roc-compliance/",
+          "indexable": true,
+          "internalLinks": 0
+        },
+        {
+          "url": "https://gvcaudit.com/services/virtual-cfo-strategic-advisory/",
+          "title": "Virtual CFO & Strategic Advisory - gvcaudit.com",
+          "h1": "",
+          "metaDescription": "Gupta Varundeep & Co. (GVC Audit) offers Virtual CFO services in Gurgaon and across India to help startups, MSMEs, and scaling companies take control of",
+          "wordCount": 533,
+          "statusCode": 200,
+          "canonical": "https://gvcaudit.com/services/virtual-cfo-strategic-advisory/",
+          "indexable": true,
+          "internalLinks": 0
+        },
+        {
+          "url": "https://gvcaudit.com/services/cross-border-international-setup/",
+          "title": "Cross-Border & International Setup - gvcaudit.com",
+          "h1": "",
+          "metaDescription": "Gupta Varundeep & Co. (GVC Audit) provides end-to-end advisory for international business setup, global structuring, and cross-border tax support. Whether",
+          "wordCount": 535,
+          "statusCode": 200,
+          "canonical": "https://gvcaudit.com/services/cross-border-international-setup/",
+          "indexable": true,
+          "internalLinks": 0
+        },
+        {
+          "url": "https://gvcaudit.com/services/gst-advisory-compliance/",
+          "title": "GST Advisory & Compliance - gvcaudit.com",
+          "h1": "",
+          "metaDescription": "Gupta Varundeep & Co. (GVC Audit) provides expert GST advisory and compliance services tailored for startups, MSMEs, and growing businesses in Gurgaon and",
+          "wordCount": 1126,
+          "statusCode": 200,
+          "canonical": "https://gvcaudit.com/services/gst-advisory-compliance/",
+          "indexable": true,
+          "internalLinks": 0
+        },
+        {
+          "url": "https://gvcaudit.com/services/income-tax-direct-tax/",
+          "title": "Income Tax & Direct Tax - gvcaudit.com",
+          "h1": "",
+          "metaDescription": "Income Tax and Direct Tax Services",
+          "wordCount": 253,
+          "statusCode": 200,
+          "canonical": "https://gvcaudit.com/services/income-tax-direct-tax/",
+          "indexable": true,
+          "internalLinks": 0
+        },
+        {
+          "url": "https://gvcaudit.com/industries/",
+          "title": "Industries - gvcaudit.com",
+          "h1": "",
+          "metaDescription": "INDUSTRY EXPERTISE",
+          "wordCount": 333,
+          "statusCode": 200,
+          "canonical": "https://gvcaudit.com/industries/",
+          "indexable": true,
+          "internalLinks": 0
+        },
+        {
+          "url": "https://gvcaudit.com/blog/",
+          "title": "Blog - gvcaudit.com",
+          "h1": "",
+          "metaDescription": "Navigate the complexities of GST, corporate taxation, and statutory compliance with actionable advice from our senior Chartered Accountants.",
+          "wordCount": 69,
+          "statusCode": 200,
+          "canonical": "https://gvcaudit.com/blog/",
+          "indexable": true,
+          "internalLinks": 0
+        },
+        {
+          "url": "https://gvcaudit.com/cases/",
+          "title": "Cases - gvcaudit.com",
+          "h1": "",
+          "metaDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+          "wordCount": 184,
+          "statusCode": 200,
+          "canonical": "https://gvcaudit.com/cases/",
+          "indexable": true,
+          "internalLinks": 0
+        },
+        {
+          "url": "https://gvcaudit.com/contact/",
+          "title": "Contact - gvcaudit.com",
+          "h1": "",
+          "metaDescription": "The Mission",
+          "wordCount": 92,
+          "statusCode": 200,
+          "canonical": "https://gvcaudit.com/contact/",
+          "indexable": true,
+          "internalLinks": 0
+        },
+        {
+          "url": "https://gvcaudit.com/blog/how-to-pay-advance-tax-online/",
+          "title": "How to Pay Advance Tax Online 2026 in India: Payment Process, Due Dates & Examples",
+          "h1": "",
+          "metaDescription": "Learn how to pay advance tax online in India for FY 2026-27. Step-by-step payment process, advance tax payment due dates, Challan ITNS 280, UPI payment, examples, penalties, and FAQs.",
+          "wordCount": 1374,
+          "statusCode": 200,
+          "canonical": "https://gvcaudit.com/blog/how-to-pay-advance-tax-online/",
+          "indexable": true,
+          "internalLinks": 0
+        },
+        {
+          "url": "https://gvcaudit.com/blog/category/advance-tax/",
+          "title": "advance tax - gvcaudit.com",
+          "h1": "",
+          "metaDescription": "",
+          "wordCount": 47,
+          "statusCode": 200,
+          "canonical": "https://gvcaudit.com/blog/category/advance-tax/",
+          "indexable": true,
+          "internalLinks": 0
+        },
+        {
+          "url": "https://gvcaudit.com/blog/category/uncategorized/",
+          "title": "Uncategorized - gvcaudit.com",
+          "h1": "",
+          "metaDescription": "",
+          "wordCount": 170,
+          "statusCode": 200,
+          "canonical": "https://gvcaudit.com/blog/category/uncategorized/",
+          "indexable": true,
+          "internalLinks": 0
+        },
+        {
+          "url": "https://gvcaudit.com/blog/best-income-tax-consultants-in-gurgaon-2026-guide/",
+          "title": "Best Income Tax Consultants in Gurgaon (2026 Guide) - gvcaudit.com",
+          "h1": "",
+          "metaDescription": "Tax compliance in India is no longer a once-a-year activity. With increasing digitization, AI-based scrutiny, and data matching across financial systems, even",
+          "wordCount": 717,
+          "statusCode": 200,
+          "canonical": "https://gvcaudit.com/blog/best-income-tax-consultants-in-gurgaon-2026-guide/",
+          "indexable": true,
+          "internalLinks": 0
+        },
+        {
+          "url": "https://gvcaudit.com/blog/advance-tax-calculation/",
+          "title": "Advance Tax Calculation Guide for Businesses, Freelancers & Companies",
+          "h1": "",
+          "metaDescription": "Learn advance tax calculation with practical examples, calculation methods, formats, and company-specific scenarios. Understand how to calculate advance tax accurately and avoid penalties.",
+          "wordCount": 1755,
+          "statusCode": 200,
+          "canonical": "https://gvcaudit.com/blog/advance-tax-calculation/",
+          "indexable": true,
+          "internalLinks": 0
+        },
+        {
+          "url": "https://gvcaudit.com/blog/category/taxation/",
+          "title": "Taxation - gvcaudit.com",
+          "h1": "",
+          "metaDescription": "",
+          "wordCount": 357,
+          "statusCode": 200,
+          "canonical": "https://gvcaudit.com/blog/category/taxation/",
+          "indexable": true,
+          "internalLinks": 0
+        },
+        {
+          "url": "https://gvcaudit.com/privacy-policy/",
+          "title": "Privacy Policy - gvcaudit.com",
+          "h1": "",
+          "metaDescription": "Privacy Policy Last updated: February 10, 2026 Gupta Varundeep & Co. (GVC Audit) respects your privacy and is committed to protecting your personal",
+          "wordCount": 348,
+          "statusCode": 200,
+          "canonical": "https://gvcaudit.com/privacy-policy/",
+          "indexable": true,
+          "internalLinks": 0
+        },
+        {
+          "url": "https://gvcaudit.com/why-choose-gvc/",
+          "title": "Why Choose GVC - gvcaudit.com",
+          "h1": "",
+          "metaDescription": "\"Trusted by 200+ MSMEs & growing startups across India.\"",
+          "wordCount": 295,
+          "statusCode": 200,
+          "canonical": "https://gvcaudit.com/why-choose-gvc/",
+          "indexable": true,
+          "internalLinks": 0
+        },
+        {
+          "url": "https://gvcaudit.com/audit-assurance-services/",
+          "title": "Page Not Found - gvcaudit.com",
+          "h1": "",
+          "metaDescription": "",
+          "wordCount": 48,
+          "statusCode": 200,
+          "canonical": "https://gvcaudit.com/audit-assurance-services/",
+          "indexable": true,
+          "internalLinks": 0
+        },
+        {
+          "url": "https://gvcaudit.com/accounting-business-outsourcing/",
+          "title": "Page Not Found - gvcaudit.com",
+          "h1": "",
+          "metaDescription": "",
+          "wordCount": 48,
+          "statusCode": 200,
+          "canonical": "https://gvcaudit.com/accounting-business-outsourcing/",
+          "indexable": true,
+          "internalLinks": 0
+        },
+        {
+          "url": "https://gvcaudit.com/business-setup-roc-compliance/",
+          "title": "Page Not Found - gvcaudit.com",
+          "h1": "",
+          "metaDescription": "",
+          "wordCount": 48,
+          "statusCode": 200,
+          "canonical": "https://gvcaudit.com/business-setup-roc-compliance/",
+          "indexable": true,
+          "internalLinks": 0
+        },
+        {
+          "url": "https://gvcaudit.com/income-tax-direct-tax/",
+          "title": "Page Not Found - gvcaudit.com",
+          "h1": "",
+          "metaDescription": "",
+          "wordCount": 48,
+          "statusCode": 200,
+          "canonical": "https://gvcaudit.com/income-tax-direct-tax/",
+          "indexable": true,
+          "internalLinks": 0
+        },
+        {
+          "url": "https://gvcaudit.com/gst-advisory-compliance/",
+          "title": "Page Not Found - gvcaudit.com",
+          "h1": "",
+          "metaDescription": "",
+          "wordCount": 48,
+          "statusCode": 200,
+          "canonical": "https://gvcaudit.com/gst-advisory-compliance/",
+          "indexable": true,
+          "internalLinks": 0
+        },
+        {
+          "url": "https://gvcaudit.com/cross-border-international-setup/",
+          "title": "Page Not Found - gvcaudit.com",
+          "h1": "",
+          "metaDescription": "",
+          "wordCount": 48,
+          "statusCode": 200,
+          "canonical": "https://gvcaudit.com/cross-border-international-setup/",
+          "indexable": true,
+          "internalLinks": 0
+        },
+        {
+          "url": "https://gvcaudit.com/author/arpan_dev/",
+          "title": "Arpan Sadhu - gvcaudit.com",
+          "h1": "",
+          "metaDescription": "",
+          "wordCount": 330,
+          "statusCode": 200,
+          "canonical": "https://gvcaudit.com/author/arpan_dev/",
+          "indexable": true,
+          "internalLinks": 0
+        },
+        {
+          "url": "https://gvcaudit.com/blog/top-10-ca-firms-in-gurgaon/",
+          "title": "Top 10 CA Firms in Gurgaon: Best Chartered Accountants for Businesses",
+          "h1": "",
+          "metaDescription": "Looking for the top 10 CA firms in Gurgaon? Compare trusted chartered accountant firms for GST, income tax, audit, ROC, accounting, startup compliance, and virtual CFO services.",
+          "wordCount": 3055,
+          "statusCode": 200,
+          "canonical": "https://gvcaudit.com/blog/top-10-ca-firms-in-gurgaon/",
+          "indexable": true,
+          "internalLinks": 0
+        },
+        {
+          "url": "https://gvcaudit.com/author/guptavarun-cagmail-com/",
+          "title": "guptavarun.ca@gmail.com - gvcaudit.com",
+          "h1": "",
+          "metaDescription": "",
+          "wordCount": 341,
+          "statusCode": 200,
+          "canonical": "https://gvcaudit.com/author/guptavarun-cagmail-com/",
+          "indexable": true,
+          "internalLinks": 0
+        }
+      ],
+      "issues": [
+        {
+          "id": "missing-local-schema",
+          "title": "Missing LocalBusiness JSON-LD Schema",
+          "description": "Search engines use structured data to understand your business type, operating hours, address, and logo.",
+          "severity": "critical",
+          "impact": "Prevents the site from appearing in Google Local 3-Pack rich snippets and Knowledge Graph.",
+          "fix": "Generate and inject a LocalBusiness schema JSON-LD snippet on the homepage header.",
+          "effort": "low"
+        },
+        {
+          "id": "missing-robots-txt",
+          "title": "Missing robots.txt or Sitemap declaration",
+          "description": "A robots.txt file guides search bots on how to crawl your site pages.",
+          "severity": "critical",
+          "impact": "Search crawlers can index temporary pages or waste crawl budget.",
+          "fix": "Create a robots.txt file and reference your main sitemap XML URL inside it.",
+          "effort": "low"
+        },
+        {
+          "id": "missing-whatsapp-cta",
+          "title": "No Floating WhatsApp CTA Button",
+          "description": "WhatsApp is India's primary communication tool. Local service sites see up to a 60% boost in lead conversion with a floating chat button.",
+          "severity": "high",
+          "impact": "Higher bounce rates and lower inquiry-to-visit conversion rates.",
+          "fix": "Embed a floating WhatsApp CTA icon linking directly to the clinic's chat line.",
+          "effort": "low"
+        },
+        {
+          "id": "missing-description",
+          "title": "Missing Meta Descriptions on 11 page(s)",
+          "description": "Meta descriptions influence user click-through rates from search results.",
+          "severity": "high",
+          "impact": "Google will auto-generate descriptions, often leading to poor click-through rates.",
+          "fix": "Draft custom meta descriptions (120-160 characters) for: https://gvcaudit.com/blog/category/advance-tax/, https://gvcaudit.com/blog/category/uncategorized/, https://gvcaudit.com/blog/category/taxation/.",
+          "effort": "low"
+        },
+        {
+          "id": "missing-h1",
+          "title": "Missing H1 Header on 31 page(s)",
+          "description": "Each indexable page should have exactly one H1 tag identifying the page topic.",
+          "severity": "medium",
+          "impact": "Weakens page relevance score for main keyword concepts.",
+          "fix": "Inject appropriate <h1> tags at the top of content for: https://gvcaudit.com/, https://gvcaudit.com/about-us/, https://gvcaudit.com/services/audit-assurance-services/.",
+          "effort": "low"
+        },
+        {
+          "id": "thin-content",
+          "title": "19 Thin Content Pages (< 400 words)",
+          "description": "Search engines prefer comprehensive, helpful content.",
+          "severity": "medium",
+          "impact": "Poor rankings due to weak information depth and low E-E-A-T scores.",
+          "fix": "Expand service description content to at least 800+ words with structured local FAQs.",
+          "effort": "medium"
+        }
+      ],
+      "summary": {
+        "totalPages": 31,
+        "indexablePages": 31,
+        "issuesCount": {
+          "critical": 2,
+          "high": 2,
+          "medium": 2,
+          "low": 0
+        },
+        "topIssues": [
+          "Missing LocalBusiness JSON-LD Schema",
+          "Missing robots.txt or Sitemap declaration",
+          "No Floating WhatsApp CTA Button"
+        ],
+        "healthScore": 40
+      }
+    },
+    "seoScore": 40
+  }
+]

@@ -20,14 +20,24 @@ export async function POST(req: NextRequest) {
   }
 
   const body = await req.json()
-  const { url, auditType, keyword, location } = body as {
+  const { url, auditType, keyword, location, prompt, competitors } = body as {
     url: string
     auditType: AuditType
     keyword?: string
     location?: string
+    prompt?: string
+    competitors?: string | string[]
   }
 
   if (!url) return NextResponse.json({ error: 'URL required' }, { status: 400 })
+
+  // Parse competitors into string[]
+  let parsedCompetitors: string[] | undefined
+  if (Array.isArray(competitors)) {
+    parsedCompetitors = competitors
+  } else if (typeof competitors === 'string' && competitors.trim()) {
+    parsedCompetitors = competitors.split(',').map(c => c.trim()).filter(Boolean)
+  }
 
   // Create report record
   const report = createReport({
@@ -35,6 +45,8 @@ export async function POST(req: NextRequest) {
     auditType,
     keyword,
     location,
+    prompt,
+    competitors: parsedCompetitors,
     status: 'running',
     createdBy: (session.user as { id?: string }).id || session.user.email,
     createdByName: session.user.name || session.user.email,

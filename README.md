@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🔮 AGX Beyond SEO
+
+AGX Beyond SEO is a collaborative, AI-powered SEO audit and optimization platform designed for modern growth and marketing teams. Built with Next.js 14, Tailwind CSS, Apify Actors, and NextAuth.js.
+
+## Key Features
+
+- **SEO Auditing**: Crawls pages speed, metadata issues, local signals, schema structures, and canonical settings.
+- **Dynamic SEO Scoring**: Computes real-time health score metrics and generates prioritizing issue cards based on actual crawl outputs.
+- **Local SEO & Maps Scraping**: Evaluates search competitors, GBP positions, and keywords optimized for specific areas (like Gurgaon/NCR).
+- **PDF Export**: Print-ready styled layouts allow exporting structured SEO reports directly to client-facing PDFs.
+- **Team Management**: Role-based access control (RBAC) supporting System Administrators and standard Members.
+- **Dynamic Integrations Settings**: Admins can update Apify API Tokens dynamically from the UI.
+- **Glassmorphism Dark UI**: Designed with high-end dark theme tokens, interactive micro-animations, and responsive layouts.
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### 1. Setup Environment Variables
+
+Create a `.env.local` file in the root directory:
+
+```env
+# NextAuth Session Secret
+NEXTAUTH_SECRET=agx-beyond-seo-super-secret-key-change-this-in-production
+NEXTAUTH_URL=http://localhost:3000
+
+# Apify API Integration Token
+APIFY_API_TOKEN=your_apify_api_token_here
+
+# Default Admin User
+ADMIN_EMAIL=admin@agx.com
+ADMIN_PASSWORD=agxseo2024
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Run Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Initial Login Credentials:**
+- **Email:** `admin@agx.com`
+- **Password:** `agxseo2024`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Deployment to Vercel
 
-To learn more about Next.js, take a look at the following resources:
+AGX Beyond SEO is fully optimized for one-click deployment to Vercel.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 1. Initialize GitHub Repository
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+git init
+git add .
+git commit -m "Initial commit of AGX Beyond SEO"
+# Push to your GitHub/GitLab repository
+```
 
-## Deploy on Vercel
+### 2. Connect to Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Log into [Vercel](https://vercel.com).
+2. Click **Add New** → **Project**.
+3. Import your GitHub repository.
+4. Add the following **Environment Variables** in the Vercel dashboard:
+   - `NEXTAUTH_SECRET` (generate a random 32-character string)
+   - `NEXTAUTH_URL` (your deployment URL, e.g., `https://your-app.vercel.app`)
+   - `APIFY_API_TOKEN` (your Apify Token)
+   - `ADMIN_EMAIL` (default admin account email)
+   - `ADMIN_PASSWORD` (default admin account password)
+5. Click **Deploy**. Vercel will build the production bundle and serve it at a public HTTPS URL.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## File Storage (Local Database)
+
+For simplicity and ease of local setup, this app uses a file-based storage manager under the `data/` directory:
+- `data/users.json` — Stores registered users, hashes/plain password records, and roles.
+- `data/reports.json` — Caches past crawl audits, ratings, page Speed info, and SEO issues.
+- `data/settings.json` — Stores system level configurations (like custom Apify tokens).
+
+*Note: For large enterprise production systems, the modules in `lib/store.ts` can be easily swapped with Vercel KV, Redis, or Supabase PostgreSQL.*

@@ -121,3 +121,28 @@ export function deleteReport(id: string) {
   const reports = getReports().filter(r => r.id !== id)
   writeJson(REPORTS_FILE, reports)
 }
+
+// ── SETTINGS ───────────────────────────────────────────────────────────
+
+const SETTINGS_FILE = path.join(DATA_DIR, 'settings.json')
+
+export interface AppSettings {
+  apifyToken?: string
+  geminiApiKey?: string
+}
+
+export function getSettings(): AppSettings {
+  const defaults: AppSettings = {
+    apifyToken: process.env.APIFY_API_TOKEN || '',
+    geminiApiKey: process.env.GEMINI_API_KEY || '',
+  }
+  return readJson<AppSettings>(SETTINGS_FILE, defaults)
+}
+
+export function updateSettings(data: Partial<AppSettings>): AppSettings {
+  const settings = getSettings()
+  const updated = { ...settings, ...data }
+  writeJson(SETTINGS_FILE, updated)
+  return updated
+}
+

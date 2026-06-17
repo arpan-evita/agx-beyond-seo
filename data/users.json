@@ -1,0 +1,11 @@
+[
+  {
+    "id": "admin",
+    "name": "Admin",
+    "email": "admin@agx.com",
+    "password": "agxseo2024",
+    "role": "admin",
+    "createdAt": "2026-06-15T22:20:16.508Z",
+    "lastLogin": "2026-06-15T22:20:16.510Z"
+  }
+]
