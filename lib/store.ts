@@ -67,6 +67,8 @@ function writeJson<T>(file: string, data: T) {
 
 export function getUsers(): User[] {
   const users = readJson<User[]>(USERS_FILE, [])
+  let updated = false
+
   // Ensure admin always exists
   if (!users.find(u => u.email === (process.env.ADMIN_EMAIL || 'admin@agx.com'))) {
     const admin: User = {
@@ -78,8 +80,27 @@ export function getUsers(): User[] {
       createdAt: new Date().toISOString(),
     }
     users.unshift(admin)
+    updated = true
+  }
+
+  // Ensure new seo analyst user always exists
+  if (!users.find(u => u.email === 'seo@agx.com')) {
+    const analyst: User = {
+      id: 'seo-analyst',
+      name: 'SEO Analyst',
+      email: 'seo@agx.com',
+      password: 'agxseo2026',
+      role: 'admin',
+      createdAt: new Date().toISOString(),
+    }
+    users.push(analyst)
+    updated = true
+  }
+
+  if (updated) {
     writeJson(USERS_FILE, users)
   }
+
   return users
 }
 

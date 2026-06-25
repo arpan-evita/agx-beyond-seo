@@ -7,5 +7,13 @@
     "role": "admin",
     "createdAt": "2026-06-15T22:20:16.508Z",
     "lastLogin": "2026-06-15T22:20:16.510Z"
+  },
+  {
+    "id": "seo-analyst",
+    "name": "SEO Analyst",
+    "email": "seo@agx.com",
+    "password": "agxseo2026",
+    "role": "admin",
+    "createdAt": "2026-06-25T18:25:00.000Z"
   }
 ]
