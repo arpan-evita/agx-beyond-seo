@@ -6,13 +6,39 @@ import fs from 'fs'
 import path from 'path'
 import type { User, AuditReport } from './types'
 
-const DATA_DIR = path.join(process.cwd(), 'data')
-const USERS_FILE = path.join(DATA_DIR, 'users.json')
-const REPORTS_FILE = path.join(DATA_DIR, 'reports.json')
+const IS_VERCEL = !!process.env.VERCEL
+const DATA_DIR = IS_VERCEL ? '/tmp/data' : path.join(/*turbopackIgnore: true*/ process.cwd(), 'data')
+
+const USERS_FILE = IS_VERCEL 
+  ? path.join('/tmp/data', 'users.json') 
+  : path.join(/*turbopackIgnore: true*/ process.cwd(), 'data', 'users.json')
+
+const REPORTS_FILE = IS_VERCEL 
+  ? path.join('/tmp/data', 'reports.json') 
+  : path.join(/*turbopackIgnore: true*/ process.cwd(), 'data', 'reports.json')
 
 function ensureDir() {
-  if (!fs.existsSync(DATA_DIR)) {
-    fs.mkdirSync(DATA_DIR, { recursive: true })
+  try {
+    if (!fs.existsSync(DATA_DIR)) {
+      fs.mkdirSync(DATA_DIR, { recursive: true })
+    }
+    
+    if (IS_VERCEL) {
+      const files = ['users.json', 'reports.json', 'settings.json']
+      files.forEach(file => {
+        const src = path.join(/*turbopackIgnore: true*/ process.cwd(), 'data', file)
+        const dest = path.join(DATA_DIR, file)
+        if (!fs.existsSync(dest) && fs.existsSync(src)) {
+          try {
+            fs.copyFileSync(src, dest)
+          } catch (e) {
+            console.error(`Failed to copy ${file}:`, e)
+          }
+        }
+      })
+    }
+  } catch (e) {
+    console.error('Failed to ensure data directory:', e)
   }
 }
 
@@ -22,14 +48,19 @@ function readJson<T>(file: string, defaultVal: T): T {
     if (!fs.existsSync(file)) return defaultVal
     const raw = fs.readFileSync(file, 'utf-8')
     return JSON.parse(raw) as T
-  } catch {
+  } catch (e) {
+    console.error(`Failed to read JSON file ${file}:`, e)
     return defaultVal
   }
 }
 
 function writeJson<T>(file: string, data: T) {
-  ensureDir()
-  fs.writeFileSync(file, JSON.stringify(data, null, 2), 'utf-8')
+  try {
+    ensureDir()
+    fs.writeFileSync(file, JSON.stringify(data, null, 2), 'utf-8')
+  } catch (e) {
+    console.error(`Failed to write JSON file ${file}:`, e)
+  }
 }
 
 // ── USERS ──────────────────────────────────────────────────────────────
@@ -124,7 +155,9 @@ export function deleteReport(id: string) {
 
 // ── SETTINGS ───────────────────────────────────────────────────────────
 
-const SETTINGS_FILE = path.join(DATA_DIR, 'settings.json')
+const SETTINGS_FILE = IS_VERCEL 
+  ? path.join('/tmp/data', 'settings.json') 
+  : path.join(/*turbopackIgnore: true*/ process.cwd(), 'data', 'settings.json')
 
 export interface AppSettings {
   apifyToken?: string

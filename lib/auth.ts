@@ -4,6 +4,7 @@ import CredentialsProvider from 'next-auth/providers/credentials'
 import { getUserByEmail, updateUser } from './store'
 
 export const authOptions: NextAuthOptions = {
+  secret: process.env.NEXTAUTH_SECRET || 'agx-beyond-seo-secret-key-2024',
   session: { strategy: 'jwt', maxAge: 24 * 60 * 60 * 30 }, // 30 days
   pages: { signIn: '/login' },
   providers: [
