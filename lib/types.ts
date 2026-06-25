@@ -45,6 +45,43 @@ export interface AuditResults {
   thirtyDayPlan?: string[]
   sixtyDayPlan?: string[]
   ninetyDayPlan?: string[]
+  categoryScores?: {
+    category: string
+    score: string
+    status: string
+    statusType: 'success' | 'warning' | 'error' | 'info'
+  }[]
+  growthModel?: {
+    targetLeads: number
+    requiredTraffic: string
+    conversionRate: string
+    sources: {
+      source: string
+      leads: string
+      action: string
+    }[]
+  }
+  dentalClinicPlan?: {
+    title: string
+    note: string
+    gbp: {
+      categories: {
+        primary: string
+        secondary: string[]
+      }
+      details: string[]
+      content: string[]
+      posts: string[]
+      qna: { q: string; a: string }[]
+    }
+    reviews: {
+      target: string
+      steps: string[]
+      keywords: string[]
+    }
+    citations: { platform: string; action: string }[]
+    landingPages: { path: string; keyword: string; priority: string }[]
+  }
 }
 
 export interface CrawlResult {

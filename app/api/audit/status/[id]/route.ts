@@ -193,7 +193,93 @@ export async function GET(
               fix: "Embed WhatsApp floating CTA anchor at bottom right linking to business chat line.",
               effort: "low"
             }
-          ]
+          ],
+          categoryScores: [
+            { category: "Technical SEO", score: "55/100", status: "Needs Work", statusType: "warning" },
+            { category: "On-Page SEO", score: "60/100", status: "Needs Work", statusType: "warning" },
+            { category: "Local SEO", score: "45/100", status: "Critical Gap", statusType: "error" },
+            { category: "Content / E-E-A-T", score: "50/100", status: "Critical Gap", statusType: "error" },
+            { category: "Schema", score: "40/100", status: "Missing", statusType: "error" },
+            { category: "Backlinks / Authority", score: "Not verified", status: "Data Needed", statusType: "info" },
+            { category: "Conversion SEO", score: "50/100", status: "Needs Work", statusType: "warning" }
+          ],
+          growthModel: {
+            targetLeads: 50,
+            requiredTraffic: "1,000–1,250 monthly visitors",
+            conversionRate: "4–6% from qualified local traffic",
+            sources: [
+              { source: "Local SEO / Map Pack (GBP)", leads: "15–20", action: "Optimize GBP, get 20+ reviews, add services/posts" },
+              { source: "Service page organic rankings", leads: "15–18", action: "Create city + service pages, expand content" },
+              { source: "Blog / Support Content", leads: "5–8", action: "Publish 2 articles/week with internal links" },
+              { source: "WhatsApp / Conversion improvements", leads: "5–7", action: "Add WhatsApp CTA, sticky call, trust proof" },
+              { source: "Referral / direct from brand authority", leads: "3–5", action: "Local PR, directory listings, citations" }
+            ]
+          },
+          dentalClinicPlan: {
+            title: "Local SEO Plan — Dental Clinic in Gurgaon",
+            note: "Note: Your site is a CA firm, not a dental clinic. But here is the complete local SEO plan you requested for a dental clinic in Gurgaon. This can be used as a template for any local client.",
+            gbp: {
+              categories: {
+                primary: "Dentist",
+                secondary: ["Dental clinic", "Cosmetic dentist", "Oral surgeon"]
+              },
+              details: [
+                "Business name: [Clinic Name] (do not keyword-stuff)",
+                "Address: Full street address with landmark",
+                "Phone: Local Gurgaon number (not national 1800)",
+                "Website: Link directly to homepage or local landing page",
+                "Hours: Add all hours including emergency hours",
+                "Attributes: Accepts new patients · Appointment required · Parking available · Wheelchair accessible"
+              ],
+              content: [
+                "Upload 25+ high-quality photos: reception, treatment room, doctor, before/after (with consent), exterior",
+                "Add all services: General Dentistry, Dental Implants, Orthodontics, Root Canal, Teeth Whitening, Veneers, Invisalign, Emergency Dental, Pediatric Dentistry",
+                "Add appointment booking link (with UTM: ?utm_source=google&utm_medium=gbp&utm_campaign=appointment)",
+                "Add clinic description (750 characters) with keywords: 'dental clinic in Gurgaon', 'best dentist Gurgaon', primary services, doctor credentials"
+              ],
+              posts: [
+                "Offer/promotion post (e.g., 'Free dental consultation this month')",
+                "Educational post (e.g., '5 signs you need a root canal')",
+                "Event post (camp, checkup drive)",
+                "Review highlight post"
+              ],
+              qna: [
+                { q: "Do you accept walk-ins?", a: "We recommend booking an appointment, but we do accept walk-in emergency cases." },
+                { q: "What is the cost of dental implants in Gurgaon?", a: "Dental implant costs range from ₹20,000 to ₹45,000 depending on the implant brand and case complexity." },
+                { q: "Do you offer EMI/financing?", a: "Yes, we offer 0% EMI financing options for treatments exceeding ₹10,000." },
+                { q: "Are you open on Sunday?", a: "We are open on Sundays for emergency procedures from 10:00 AM to 2:00 PM." },
+                { q: "What areas do you serve near Gurgaon?", a: "We serve Sector 14, Sector 15, Sector 49, DLF Phase 1-5, Cyber City, and surrounding Gurgaon micro-markets." }
+              ]
+            },
+            reviews: {
+              target: "50+ Google reviews with 4.8+ average",
+              steps: [
+                "After every successful treatment, send WhatsApp message with short link",
+                "Display QR code at reception desk linking to Google review page",
+                "Train front desk staff to verbally request review at checkout",
+                "Follow up via SMS 24 hours after appointment"
+              ],
+              keywords: ["dental implants Gurgaon", "dentist in Sector Gurgaon", "best dentist near me", "painless root canal"]
+            },
+            citations: [
+              { platform: "Justdial", action: "Create/claim listing" },
+              { platform: "Practo", action: "Create verified profile (critical for dental in India)" },
+              { platform: "Sulekha", action: "Create listing" },
+              { platform: "IndiaMART", action: "Add service listing" },
+              { platform: "Lybrate", action: "Create doctor/clinic profile" },
+              { platform: "Local Gurgaon directories", action: "List in DLF Phase, Cyber City, Sector directories" }
+            ],
+            landingPages: [
+              { path: "/dentist-gurgaon/", keyword: "dentist in Gurgaon", priority: "critical" },
+              { path: "/dental-implants-gurgaon/", keyword: "dental implants Gurgaon", priority: "critical" },
+              { path: "/root-canal-gurgaon/", keyword: "root canal treatment Gurgaon", priority: "critical" },
+              { path: "/teeth-whitening-gurgaon/", keyword: "teeth whitening Gurgaon", priority: "high" },
+              { path: "/invisalign-gurgaon/", keyword: "Invisalign Gurgaon", priority: "high" },
+              { path: "/emergency-dentist-gurgaon/", keyword: "emergency dentist Gurgaon", priority: "high" },
+              { path: "/kids-dentist-gurgaon/", keyword: "children dentist Gurgaon", priority: "medium" },
+              { path: "/cosmetic-dentist-gurgaon/", keyword: "cosmetic dentistry Gurgaon", priority: "medium" }
+            ]
+          }
         }
       } else {
         // Return generic mock crawl results
@@ -249,7 +335,26 @@ export async function GET(
               fix: "Expand content to 800+ words detailing all available core services.",
               effort: "medium"
             }
-          ]
+          ],
+          categoryScores: [
+            { category: "Technical SEO", score: "65/100", status: "Needs Work", statusType: "warning" },
+            { category: "On-Page SEO", score: "70/100", status: "Optimal", statusType: "success" },
+            { category: "Local SEO", score: "60/100", status: "Needs Work", statusType: "warning" },
+            { category: "Content / E-E-A-T", score: "65/100", status: "Needs Work", statusType: "warning" },
+            { category: "Schema", score: "50/100", status: "Needs Work", statusType: "warning" },
+            { category: "Backlinks / Authority", score: "Not verified", status: "Data Needed", statusType: "info" },
+            { category: "Conversion SEO", score: "60/100", status: "Needs Work", statusType: "warning" }
+          ],
+          growthModel: {
+            targetLeads: 30,
+            requiredTraffic: "600–800 monthly visitors",
+            conversionRate: "3–5% from qualified traffic",
+            sources: [
+              { source: "Organic Search", leads: "15–20", action: "Optimize landing pages and rank for target keywords" },
+              { source: "Local SEO / Google Maps", leads: "5–10", action: "Optimize Google Business Profile and reviews" },
+              { source: "Conversion Rate Optimization (CRO)", leads: "5–8", action: "Add clear CTAs and WhatsApp floating widget" }
+            ]
+          }
         }
       }
 

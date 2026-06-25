@@ -34,7 +34,7 @@ export default function AuditReportDetailPage() {
   const [report, setReport] = useState<AuditReport | null>(null)
   const [loading, setLoading] = useState(true)
   const [polling, setPolling] = useState(false)
-  const [activeReportTab, setActiveReportTab] = useState<'metrics' | 'recommendations' | 'issues'>('metrics')
+  const [activeReportTab, setActiveReportTab] = useState<'metrics' | 'recommendations' | 'growth' | 'localseo'>('metrics')
 
   // Toggle state for issue accordions
   const [expandedIssues, setExpandedIssues] = useState<Record<string, boolean>>({})
@@ -386,11 +386,11 @@ export default function AuditReportDetailPage() {
 
       {/* Dynamic Tab Checklist recommendations */}
       {report?.status === 'completed' && (
-        <div className="glass-card rounded-2xl overflow-hidden border border-white/5 shadow-xl mb-10 select-none">
-          <div className="flex border-b border-white/5 bg-white/[0.02]">
+        <div className="glass-card rounded-2xl overflow-hidden border border-white/5 shadow-xl mb-10 select-none print:hidden">
+          <div className="flex flex-wrap border-b border-white/5 bg-white/[0.02]">
             <button 
               onClick={() => setActiveReportTab('metrics')}
-              className={`flex-1 py-4 text-xs font-extrabold tracking-wider uppercase transition-all cursor-pointer ${
+              className={`flex-1 min-w-[120px] py-4 text-[10px] md:text-xs font-extrabold tracking-wider uppercase transition-all cursor-pointer ${
                 activeReportTab === 'metrics' ? 'text-purple-400 border-b-2 border-purple-500 bg-purple-500/5' : 'text-gray-400 hover:text-white'
               }`}
             >
@@ -398,41 +398,98 @@ export default function AuditReportDetailPage() {
             </button>
             <button 
               onClick={() => setActiveReportTab('recommendations')}
-              className={`flex-1 py-4 text-xs font-extrabold tracking-wider uppercase transition-all cursor-pointer ${
+              className={`flex-1 min-w-[120px] py-4 text-[10px] md:text-xs font-extrabold tracking-wider uppercase transition-all cursor-pointer ${
                 activeReportTab === 'recommendations' ? 'text-purple-400 border-b-2 border-purple-500 bg-purple-500/5' : 'text-gray-400 hover:text-white'
               }`}
             >
-              2. Crawled Pages Inventory ({crawlItems.length})
+              2. Page Inventory ({crawlItems.length})
             </button>
+            {report?.results?.growthModel && (
+              <button 
+                onClick={() => setActiveReportTab('growth')}
+                className={`flex-1 min-w-[120px] py-4 text-[10px] md:text-xs font-extrabold tracking-wider uppercase transition-all cursor-pointer ${
+                  activeReportTab === 'growth' ? 'text-purple-400 border-b-2 border-purple-500 bg-purple-500/5' : 'text-gray-400 hover:text-white'
+                }`}
+              >
+                3. Leads Growth Model
+              </button>
+            )}
+            {report?.results?.dentalClinicPlan && (
+              <button 
+                onClick={() => setActiveReportTab('localseo')}
+                className={`flex-1 min-w-[120px] py-4 text-[10px] md:text-xs font-extrabold tracking-wider uppercase transition-all cursor-pointer ${
+                  activeReportTab === 'localseo' ? 'text-purple-400 border-b-2 border-purple-500 bg-purple-500/5' : 'text-gray-400 hover:text-white'
+                }`}
+              >
+                4. Dental Local SEO
+              </button>
+            )}
           </div>
 
           <div className="p-6">
             {activeReportTab === 'metrics' && (
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 animate-fade-in text-center">
-                <div className="p-4 rounded-xl bg-white/[0.01] border border-white/5">
-                  <span className="text-[9px] uppercase tracking-wider text-gray-400 font-bold block">Desktop Speed Index</span>
-                  <span className="font-sora text-sm font-extrabold text-[#dfe2ee] mt-1 block">
-                    {crawlItems.length > 0 ? '0.8s' : '—'}
-                  </span>
+              <div className="space-y-8 animate-fade-in">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                  <div className="p-4 rounded-xl bg-white/[0.01] border border-white/5">
+                    <span className="text-[9px] uppercase tracking-wider text-gray-400 font-bold block">Desktop Speed Index</span>
+                    <span className="font-sora text-sm font-extrabold text-[#dfe2ee] mt-1 block">
+                      {crawlItems.length > 0 ? '0.8s' : '—'}
+                    </span>
+                  </div>
+                  <div className="p-4 rounded-xl bg-white/[0.01] border border-white/5">
+                    <span className="text-[9px] uppercase tracking-wider text-gray-400 font-bold block">Accessibility Score</span>
+                    <span className="font-sora text-sm font-extrabold text-purple-300 mt-1 block">
+                      {score >= 70 ? '94' : '82'}/100
+                    </span>
+                  </div>
+                  <div className="p-4 rounded-xl bg-white/[0.01] border border-white/5">
+                    <span className="text-[9px] uppercase tracking-wider text-gray-400 font-bold block">Lighthouse Marks</span>
+                    <span className="font-sora text-sm font-extrabold text-cyan-400 mt-1 block">
+                      {score}/100
+                    </span>
+                  </div>
+                  <div className="p-4 rounded-xl bg-white/[0.01] border border-white/5">
+                    <span className="text-[9px] uppercase tracking-wider text-gray-400 font-bold block">Best Practices</span>
+                    <span className="font-sora text-sm font-extrabold text-emerald-400 mt-1 block">
+                      {score >= 70 ? '96' : '84'}/100
+                    </span>
+                  </div>
                 </div>
-                <div className="p-4 rounded-xl bg-white/[0.01] border border-white/5">
-                  <span className="text-[9px] uppercase tracking-wider text-gray-400 font-bold block">Accessibility Score</span>
-                  <span className="font-sora text-sm font-extrabold text-purple-300 mt-1 block">
-                    {score >= 70 ? '94' : '82'}/100
-                  </span>
-                </div>
-                <div className="p-4 rounded-xl bg-white/[0.01] border border-white/5">
-                  <span className="text-[9px] uppercase tracking-wider text-gray-400 font-bold block">Lighthouse Marks</span>
-                  <span className="font-sora text-sm font-extrabold text-cyan-400 mt-1 block">
-                    {score}/100
-                  </span>
-                </div>
-                <div className="p-4 rounded-xl bg-white/[0.01] border border-white/5">
-                  <span className="text-[9px] uppercase tracking-wider text-gray-400 font-bold block">Best Practices</span>
-                  <span className="font-sora text-sm font-extrabold text-emerald-400 mt-1 block">
-                    {score >= 70 ? '96' : '84'}/100
-                  </span>
-                </div>
+
+                {report?.results?.categoryScores && (
+                  <div className="mt-8 border-t border-white/5 pt-6 text-left">
+                    <h4 className="font-sora text-sm font-bold text-white mb-4">Category SEO Scores</h4>
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-left">
+                        <thead className="bg-white/[0.02] text-gray-400 font-bold text-[10px] uppercase tracking-wider border-b border-white/5">
+                          <tr>
+                            <th className="px-6 py-3">Category</th>
+                            <th className="px-6 py-3">Score</th>
+                            <th className="px-6 py-3">Status</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-white/5 text-xs">
+                          {report.results.categoryScores.map((c, i) => (
+                            <tr key={i} className="hover:bg-white/[0.01] transition-colors">
+                              <td className="px-6 py-3 font-semibold text-white">{c.category}</td>
+                              <td className="px-6 py-3 text-purple-300 font-bold">{c.score}</td>
+                              <td className="px-6 py-3">
+                                <span className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-bold text-[9px] border uppercase ${
+                                  c.statusType === 'success' ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' :
+                                  c.statusType === 'error' ? 'bg-red-500/10 text-red-400 border-red-500/20' :
+                                  c.statusType === 'warning' ? 'bg-amber-500/10 text-amber-400 border-amber-500/20' :
+                                  'bg-blue-500/10 text-blue-400 border-blue-500/20'
+                                }`}>
+                                  <span>{c.status}</span>
+                                </span>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                )}
               </div>
             )}
 
@@ -480,6 +537,211 @@ export default function AuditReportDetailPage() {
                     ))}
                   </tbody>
                 </table>
+              </div>
+            )}
+
+            {activeReportTab === 'growth' && report?.results?.growthModel && (
+              <div className="space-y-6 animate-fade-in text-left">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="p-4 rounded-xl bg-white/[0.01] border border-white/5">
+                    <span className="text-[9px] uppercase tracking-wider text-gray-400 font-bold block">Target Leads / Month</span>
+                    <span className="font-sora text-xl font-extrabold text-purple-300 mt-1 block">
+                      {report.results.growthModel.targetLeads} Leads
+                    </span>
+                  </div>
+                  <div className="p-4 rounded-xl bg-white/[0.01] border border-white/5">
+                    <span className="text-[9px] uppercase tracking-wider text-gray-400 font-bold block">Required Traffic</span>
+                    <span className="font-sora text-xl font-extrabold text-cyan-400 mt-1 block">
+                      {report.results.growthModel.requiredTraffic}
+                    </span>
+                  </div>
+                  <div className="p-4 rounded-xl bg-white/[0.01] border border-white/5">
+                    <span className="text-[9px] uppercase tracking-wider text-gray-400 font-bold block">Conversion Rate</span>
+                    <span className="font-sora text-xl font-extrabold text-emerald-400 mt-1 block">
+                      {report.results.growthModel.conversionRate}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="border-t border-white/5 pt-6">
+                  <h4 className="font-sora text-sm font-bold text-white mb-4">Leads Generation Sources</h4>
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-left">
+                      <thead className="bg-white/[0.02] text-gray-400 font-bold text-[10px] uppercase tracking-wider border-b border-white/5">
+                        <tr>
+                          <th className="px-6 py-3">Source Channel</th>
+                          <th className="px-6 py-3">Leads/Month</th>
+                          <th className="px-6 py-3">Action Required</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-white/5 text-xs">
+                        {report.results.growthModel.sources.map((s, i) => (
+                          <tr key={i} className="hover:bg-white/[0.01] transition-colors">
+                            <td className="px-6 py-3 font-semibold text-white">{s.source}</td>
+                            <td className="px-6 py-3 text-purple-300 font-bold">{s.leads}</td>
+                            <td className="px-6 py-3 text-gray-400">{s.action}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {activeReportTab === 'localseo' && report?.results?.dentalClinicPlan && (
+              <div className="space-y-6 animate-fade-in text-left text-xs text-gray-300 leading-relaxed max-w-full">
+                <div className="p-4 rounded-xl bg-purple-500/5 border border-purple-500/20 text-purple-300">
+                  <p className="font-bold text-sm mb-1">{report.results.dentalClinicPlan.title}</p>
+                  <p className="text-[11px]">{report.results.dentalClinicPlan.note}</p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-4">
+                    <h4 className="font-sora text-sm font-bold text-white border-b border-white/5 pb-2">GBP Optimization</h4>
+                    <p className="text-gray-400 font-bold">Categories:</p>
+                    <ul className="list-disc pl-4 space-y-1 mb-2">
+                      <li>Primary: <strong className="text-white">{report.results.dentalClinicPlan.gbp.categories.primary}</strong></li>
+                      <li>Secondary: <span className="text-gray-400">{report.results.dentalClinicPlan.gbp.categories.secondary.join(', ')}</span></li>
+                    </ul>
+                    <p className="text-gray-400 font-bold mt-2">Setup Details:</p>
+                    <ul className="list-disc pl-4 space-y-1">
+                      {report.results.dentalClinicPlan.gbp.details.map((d, i) => <li key={i}>{d}</li>)}
+                    </ul>
+                    <p className="text-gray-400 font-bold mt-2">Content & Photos:</p>
+                    <ul className="list-disc pl-4 space-y-1">
+                      {report.results.dentalClinicPlan.gbp.content.map((c, i) => <li key={i}>{c}</li>)}
+                    </ul>
+                  </div>
+
+                  <div className="space-y-4">
+                    <h4 className="font-sora text-sm font-bold text-white border-b border-white/5 pb-2">Review Strategy</h4>
+                    <p className="text-purple-300 font-bold">Target: {report.results.dentalClinicPlan.reviews.target}</p>
+                    <p className="text-gray-400 font-bold">Acquisition System:</p>
+                    <ol className="list-decimal pl-4 space-y-1">
+                      {report.results.dentalClinicPlan.reviews.steps.map((s, i) => <li key={i}>{s}</li>)}
+                    </ol>
+                    <p className="text-gray-400 font-bold mt-2">Keywords to Encourage:</p>
+                    <div className="flex flex-wrap gap-2 mt-1">
+                      {report.results.dentalClinicPlan.reviews.keywords.map((k, i) => (
+                        <span key={i} className="px-2.5 py-0.5 bg-white/5 border border-white/5 rounded-full text-[10px] text-white">
+                          {k}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-white/5">
+                  <div className="space-y-4">
+                    <h4 className="font-sora text-sm font-bold text-white border-b border-white/5 pb-2">Local Landing Pages</h4>
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-left">
+                        <thead className="bg-white/[0.02] text-gray-400 font-bold text-[9px] uppercase tracking-wider border-b border-white/5">
+                          <tr>
+                            <th className="px-4 py-2">URL Path</th>
+                            <th className="px-4 py-2">Target Keyword</th>
+                            <th className="px-4 py-2">Priority</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-white/5 text-[11px]">
+                          {report.results.dentalClinicPlan.landingPages.map((p, i) => (
+                            <tr key={i}>
+                              <td className="px-4 py-2 font-mono text-purple-400">{p.path}</td>
+                              <td className="px-4 py-2 text-white">{p.keyword}</td>
+                              <td className="px-4 py-2">
+                                <span className={`px-2 py-0.5 rounded text-[9px] font-bold uppercase ${
+                                  p.priority === 'critical' ? 'bg-red-500/10 text-red-400' : 'bg-amber-500/10 text-amber-400'
+                                }`}>
+                                  {p.priority}
+                                </span>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4">
+                    <h4 className="font-sora text-sm font-bold text-white border-b border-white/5 pb-2">NAP Citations Plan</h4>
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-left">
+                        <thead className="bg-white/[0.02] text-gray-400 font-bold text-[9px] uppercase tracking-wider border-b border-white/5">
+                          <tr>
+                            <th className="px-4 py-2">Platform</th>
+                            <th className="px-4 py-2">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-white/5 text-[11px]">
+                          {report.results.dentalClinicPlan.citations.map((c, i) => (
+                            <tr key={i}>
+                              <td className="px-4 py-2 font-bold text-white">{c.platform}</td>
+                              <td className="px-4 py-2 text-gray-400">{c.action}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-4 border-t border-white/5">
+                  <h4 className="font-sora text-sm font-bold text-white mb-2">GBP Q&A Setup</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {report.results.dentalClinicPlan.gbp.qna.map((q, i) => (
+                      <div key={i} className="p-3 bg-white/[0.01] border border-white/5 rounded-xl">
+                        <p className="font-bold text-purple-300">Q: {q.q}</p>
+                        <p className="text-gray-400 mt-1">A: {q.a}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="pt-4 border-t border-white/5">
+                  <h4 className="font-sora text-sm font-bold text-white mb-2">Dentist structured JSON-LD schema</h4>
+                  <div className="p-4 bg-[#04080e] rounded-xl border border-white/5 font-mono text-[10px] relative select-text">
+                    <span className="absolute right-3 top-3 text-[8px] text-gray-500 uppercase tracking-widest font-bold">JSON-LD</span>
+                    <pre className="text-purple-300 overflow-x-auto leading-normal whitespace-pre-wrap">
+{`{
+  "@context": "https://schema.org",
+  "@type": ["Dentist", "LocalBusiness"],
+  "name": "[Clinic Name]",
+  "url": "https://[clinic-domain].com",
+  "telephone": "+91-XXXXXXXXXX",
+  "priceRange": "₹₹",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "[Full Address]",
+    "addressLocality": "Gurgaon",
+    "addressRegion": "Haryana",
+    "postalCode": "122001",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 28.4595,
+    "longitude": 77.0266
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "09:00",
+      "closes": "20:00"
+    }
+  ],
+  "hasMap": "[Google Maps URL]",
+  "medicalSpecialty": "Dentist",
+  "availableService": [
+    {"@type": "MedicalProcedure", "name": "Dental Implants"},
+    {"@type": "MedicalProcedure", "name": "Root Canal Treatment"},
+    {"@type": "MedicalProcedure", "name": "Teeth Whitening"}
+  ]
+}`}
+                    </pre>
+                  </div>
+                </div>
               </div>
             )}
           </div>
@@ -545,6 +807,142 @@ export default function AuditReportDetailPage() {
 
         </div>
       </div>
+
+      {/* Printable Only Report Sections (visible only during Print/PDF export) */}
+      {report?.status === 'completed' && (
+        <div className="hidden print:block print:text-black space-y-12 mt-12 border-t-2 border-dashed border-gray-700 pt-12">
+          <h2 className="text-2xl font-bold uppercase text-center border-b pb-4">Full SEO Audit Report Appendix</h2>
+          
+          {/* Category Scores */}
+          {report.results?.categoryScores && (
+            <div className="space-y-4">
+              <h3 className="text-lg font-bold border-b pb-2">Category SEO Health Scores</h3>
+              <table className="w-full text-left border-collapse border border-gray-300">
+                <thead>
+                  <tr className="bg-gray-100">
+                    <th className="border border-gray-300 px-4 py-2">Category</th>
+                    <th className="border border-gray-300 px-4 py-2">Score</th>
+                    <th className="border border-gray-300 px-4 py-2">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {report.results.categoryScores.map((c, i) => (
+                    <tr key={i}>
+                      <td className="border border-gray-300 px-4 py-2 font-semibold">{c.category}</td>
+                      <td className="border border-gray-300 px-4 py-2 font-bold">{c.score}</td>
+                      <td className="border border-gray-300 px-4 py-2">{c.status}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+
+          {/* Growth Model */}
+          {report.results?.growthModel && (
+            <div className="space-y-4 page-break-before">
+              <h3 className="text-lg font-bold border-b pb-2">50 Leads/Month Organic Growth Model</h3>
+              <div className="grid grid-cols-3 gap-4 border p-4 bg-gray-50 rounded-lg">
+                <div>
+                  <span className="text-[10px] text-gray-500 font-bold block uppercase">Target Leads</span>
+                  <span className="text-lg font-bold">{report.results.growthModel.targetLeads} Leads/Month</span>
+                </div>
+                <div>
+                  <span className="text-[10px] text-gray-500 font-bold block uppercase">Required Traffic</span>
+                  <span className="text-lg font-bold">{report.results.growthModel.requiredTraffic}</span>
+                </div>
+                <div>
+                  <span className="text-[10px] text-gray-500 font-bold block uppercase">Conversion Rate</span>
+                  <span className="text-lg font-bold">{report.results.growthModel.conversionRate}</span>
+                </div>
+              </div>
+              <table className="w-full text-left border-collapse border border-gray-300 mt-4">
+                <thead>
+                  <tr className="bg-gray-100">
+                    <th className="border border-gray-300 px-4 py-2">Lead Source Channel</th>
+                    <th className="border border-gray-300 px-4 py-2">Leads/Month</th>
+                    <th className="border border-gray-300 px-4 py-2">Action Required</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {report.results.growthModel.sources.map((s, i) => (
+                    <tr key={i}>
+                      <td className="border border-gray-300 px-4 py-2 font-semibold">{s.source}</td>
+                      <td className="border border-gray-300 px-4 py-2 font-bold">{s.leads}</td>
+                      <td className="border border-gray-300 px-4 py-2">{s.action}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+
+          {/* Dental Local SEO Template */}
+          {report.results?.dentalClinicPlan && (
+            <div className="space-y-6 page-break-before">
+              <h3 className="text-lg font-bold border-b pb-2">Local SEO Template Plan — Dental Clinic</h3>
+              <p className="text-sm italic text-gray-600">{report.results.dentalClinicPlan.note}</p>
+              
+              <div className="space-y-4">
+                <h4 className="font-bold text-md border-b pb-1">1. Google Business Profile Optimization</h4>
+                <p><strong>Primary Category:</strong> {report.results.dentalClinicPlan.gbp.categories.primary}</p>
+                <p><strong>Secondary Categories:</strong> {report.results.dentalClinicPlan.gbp.categories.secondary.join(', ')}</p>
+                <h5 className="font-semibold text-sm mt-2">Setup Details:</h5>
+                <ul className="list-disc pl-5">
+                  {report.results.dentalClinicPlan.gbp.details.map((d, i) => <li key={i}>{d}</li>)}
+                </ul>
+              </div>
+
+              <div className="space-y-4 page-break-before">
+                <h4 className="font-bold text-md border-b pb-1">2. Review Strategy & NAP Citations</h4>
+                <p><strong>Target:</strong> {report.results.dentalClinicPlan.reviews.target}</p>
+                <ul className="list-disc pl-5">
+                  {report.results.dentalClinicPlan.reviews.steps.map((s, i) => <li key={i}>{s}</li>)}
+                </ul>
+                <h5 className="font-semibold text-sm mt-2">Verified Citations Matrix:</h5>
+                <table className="w-full text-left border-collapse border border-gray-300 mt-2">
+                  <thead>
+                    <tr className="bg-gray-100">
+                      <th className="border border-gray-300 px-4 py-2">Platform</th>
+                      <th className="border border-gray-300 px-4 py-2">Action Required</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {report.results.dentalClinicPlan.citations.map((c, i) => (
+                      <tr key={i}>
+                        <td className="border border-gray-300 px-4 py-2 font-semibold">{c.platform}</td>
+                        <td className="border border-gray-300 px-4 py-2">{c.action}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="space-y-4 page-break-before">
+                <h4 className="font-bold text-md border-b pb-1">3. Local Landing Pages Mapping</h4>
+                <table className="w-full text-left border-collapse border border-gray-300">
+                  <thead>
+                    <tr className="bg-gray-100">
+                      <th className="border border-gray-300 px-4 py-2">URL Path</th>
+                      <th className="border border-gray-300 px-4 py-2">Target Keyword</th>
+                      <th className="border border-gray-300 px-4 py-2">Priority</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {report.results.dentalClinicPlan.landingPages.map((p, i) => (
+                      <tr key={i}>
+                        <td className="border border-gray-300 px-4 py-2 font-mono text-purple-700">{p.path}</td>
+                        <td className="border border-gray-300 px-4 py-2">{p.keyword}</td>
+                        <td className="border border-gray-300 px-4 py-2 font-bold uppercase">{p.priority}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
 
     </div>
   )
