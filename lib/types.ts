@@ -136,6 +136,7 @@ export interface SEOIssue {
   impact: string
   fix: string
   effort: 'low' | 'medium' | 'high'
+  affectedUrls?: string[]
 }
 
 export interface AuditSummary {

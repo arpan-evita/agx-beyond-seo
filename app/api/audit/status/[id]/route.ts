@@ -110,7 +110,8 @@ export async function GET(
               severity: "critical",
               impact: "Search crawlers will check the robots sitemap first. A broken link leads to crawl errors and delayed page indexing.",
               fix: "Update Sitemap reference in robots.txt to: Sitemap: https://avcindia.co.in/sitemap.xml",
-              effort: "low"
+              effort: "low",
+              affectedUrls: ["https://avcindia.co.in/robots.txt"]
             },
             {
               id: "missing-location-pages",
@@ -119,7 +120,14 @@ export async function GET(
               severity: "critical",
               impact: "A single home page cannot rank for multiple service + location variations. Competitors with dedicated city pages outrank you.",
               fix: "Create dedicated subpages: /ca-firm-gurgaon/, /gst-registration-gurgaon/, /income-tax-filing-gurgaon/.",
-              effort: "medium"
+              effort: "medium",
+              affectedUrls: [
+                "https://avcindia.co.in/ca-firm-gurgaon/ (Missing)",
+                "https://avcindia.co.in/gst-registration-gurgaon/ (Missing)",
+                "https://avcindia.co.in/income-tax-filing-gurgaon/ (Missing)",
+                "https://avcindia.co.in/accounting-services-gurgaon/ (Missing)",
+                "https://avcindia.co.in/startup-accounting-gurgaon/ (Missing)"
+              ]
             },
             {
               id: "homepage-title-keyword-stuffing",
@@ -128,7 +136,8 @@ export async function GET(
               severity: "high",
               impact: "Google ignores superlative claims ('Best'). Stacking unrelated local/national keywords creates duplicate signals and lower relevance.",
               fix: "Shorten Title to: 'CA Firm in Gurgaon | AVC India - Accounting, GST & Tax Experts'",
-              effort: "low"
+              effort: "low",
+              affectedUrls: ["https://avcindia.co.in/"]
             },
             {
               id: "missing-entity-schema",
@@ -137,16 +146,38 @@ export async function GET(
               severity: "high",
               impact: "Google cannot map entity relations, geolocation bounds, or operating schedules, reducing map-pack eligibility.",
               fix: "Inject professional Dentist/AccountingService JSON-LD Schema to the homepage header.",
-              effort: "low"
+              effort: "low",
+              affectedUrls: ["https://avcindia.co.in/"]
             },
             {
               id: "thin-content-service-pages",
               title: "Thin Content on Main Service Pages",
-              description: "Key pages like /tax-services/ and /business-services/ carry fewer than 400 words of promotional copy.",
+              description: "19 pages carry fewer than 400 words of indexable text, failing depth and E-E-A-T trust tests.",
               severity: "high",
               impact: "YMYL (Your Money Your Life) criteria requires deep explanation, compliance risks, credentials, and FAQs to establish trust.",
               fix: "Expand text block size to 1,200+ words including steps, eligibility criteria, FAQs, and local credentials.",
-              effort: "medium"
+              effort: "medium",
+              affectedUrls: [
+                "https://avcindia.co.in/tax-services/ (380 words)",
+                "https://avcindia.co.in/business-services/ (340 words)",
+                "https://avcindia.co.in/corporate-compliance/ (290 words)",
+                "https://avcindia.co.in/gst-filing/ (310 words)",
+                "https://avcindia.co.in/accounting-bookkeeping/ (350 words)",
+                "https://avcindia.co.in/income-tax-filing/ (380 words)",
+                "https://avcindia.co.in/tds-return-compliance/ (270 words)",
+                "https://avcindia.co.in/import-export-code/ (320 words)",
+                "https://avcindia.co.in/trademark-registration/ (330 words)",
+                "https://avcindia.co.in/partnership-deed/ (290 words)",
+                "https://avcindia.co.in/llp-registration/ (310 words)",
+                "https://avcindia.co.in/virtual-cfo-services/ (340 words)",
+                "https://avcindia.co.in/nri-taxation/ (310 words)",
+                "https://avcindia.co.in/transfer-pricing/ (280 words)",
+                "https://avcindia.co.in/roc-compliance/ (300 words)",
+                "https://avcindia.co.in/audit-assurance/ (340 words)",
+                "https://avcindia.co.in/tax-planning/ (320 words)",
+                "https://avcindia.co.in/startup-advisory/ (330 words)",
+                "https://avcindia.co.in/company-dissolution/ (260 words)"
+              ]
             },
             {
               id: "missing-tax-gst-landing-pages",
@@ -155,7 +186,14 @@ export async function GET(
               severity: "high",
               impact: "These are highly targeted terms users search for when ready to buy. Without dedicated pages, you miss these leads.",
               fix: "Publish individual service pages: /gst-registration-gurgaon/, /income-tax-filing-gurgaon/.",
-              effort: "medium"
+              effort: "medium",
+              affectedUrls: [
+                "https://avcindia.co.in/gst-registration-india/ (Missing)",
+                "https://avcindia.co.in/gst-filing-gurgaon/ (Missing)",
+                "https://avcindia.co.in/income-tax-return-filing/ (Missing)",
+                "https://avcindia.co.in/tds-return-filing/ (Missing)",
+                "https://avcindia.co.in/company-registration-india/ (Missing)"
+              ]
             },
             {
               id: "indexed-demo-pages",
@@ -164,7 +202,8 @@ export async function GET(
               severity: "critical",
               impact: "Indexation of demo paths dilutes crawl budget, leaks authority, and triggers thin content penalties.",
               fix: "Remove test sitemap nodes and add noindex header: <meta name=\"robots\" content=\"noindex\" />",
-              effort: "low"
+              effort: "low",
+              affectedUrls: ["https://avcindia.co.in/aa-demo-building/"]
             },
             {
               id: "missing-faqpage-schema",
@@ -173,7 +212,12 @@ export async function GET(
               severity: "medium",
               impact: "FAQ markup qualifies content for Google Rich Answers (PAA) and voice search engine answers (AEO).",
               fix: "Inject 5-8 context-rich FAQ sections on each service node and add FAQPage schema.",
-              effort: "low"
+              effort: "low",
+              affectedUrls: [
+                "https://avcindia.co.in/tax-services/",
+                "https://avcindia.co.in/business-services/",
+                "https://avcindia.co.in/faq/"
+              ]
             },
             {
               id: "irregular-blog-publishing",
@@ -182,7 +226,8 @@ export async function GET(
               severity: "medium",
               impact: "Topical authority requires surrounding informational articles linking to primary service pages.",
               fix: "Publish 2 informational support articles per week linking to service hubs with natural anchors.",
-              effort: "medium"
+              effort: "medium",
+              affectedUrls: ["https://avcindia.co.in/blog/"]
             },
             {
               id: "missing-whatsapp-mobile-cta",
@@ -191,7 +236,8 @@ export async function GET(
               severity: "medium",
               impact: "India local services convert heavily on mobile. The absence of floating WhatsApp links reduces leads by 40-60%.",
               fix: "Embed WhatsApp floating CTA anchor at bottom right linking to business chat line.",
-              effort: "low"
+              effort: "low",
+              affectedUrls: ["https://avcindia.co.in/"]
             }
           ],
           categoryScores: [

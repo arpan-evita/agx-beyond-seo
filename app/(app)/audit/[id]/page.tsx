@@ -361,6 +361,21 @@ export default function AuditReportDetailPage() {
                             ⚠️ Impact: <span className="text-white font-normal">{issue.impact}</span>
                           </p>
                         </div>
+                        {issue.affectedUrls && issue.affectedUrls.length > 0 && (
+                          <div className="mt-3">
+                            <p className="text-white font-bold mb-1.5 flex items-center gap-1.5">
+                              <span className="w-1.5 h-1.5 rounded-full bg-purple-400" />
+                              <span>Affected Pages ({issue.affectedUrls.length}):</span>
+                            </p>
+                            <div className="max-h-32 overflow-y-auto space-y-1.5 pr-2 border border-white/5 bg-[#04080e]/40 p-2.5 rounded-xl font-mono text-[10px] text-purple-300">
+                              {issue.affectedUrls.map((url, idx) => (
+                                <div key={idx} className="truncate select-text">
+                                  {url}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
                         <div className="flex items-center gap-2">
                           <span className="text-[10px] uppercase font-bold text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded border border-purple-500/20">
                             Effort: {issue.effort || 'low'}
@@ -861,6 +876,37 @@ export default function AuditReportDetailPage() {
                   ))}
                 </tbody>
               </table>
+            </div>
+          )}
+          {/* SEO Issues Detailed Diagnostics */}
+          {issuesList.length > 0 && (
+            <div className="space-y-6 page-break-before">
+              <h3 className="text-lg font-bold border-b pb-2">SEO Issues Detailed Diagnostics</h3>
+              <div className="space-y-6">
+                {issuesList.map((issue, idx) => (
+                  <div key={idx} className="border border-gray-300 p-4 rounded-lg bg-gray-50 space-y-2">
+                    <div className="flex justify-between items-start border-b pb-2">
+                      <h4 className="font-bold text-md text-red-800">{idx + 1}. {issue.title}</h4>
+                      <span className="text-[10px] uppercase font-bold px-2 py-0.5 border rounded bg-red-100 text-red-800 border-red-300">
+                        {issue.severity}
+                      </span>
+                    </div>
+                    <p className="text-xs text-gray-700"><strong>Description:</strong> {issue.description}</p>
+                    <p className="text-xs text-gray-700"><strong>⚠️ Impact:</strong> {issue.impact}</p>
+                    <p className="text-xs text-gray-700"><strong>💡 Actionable Solution:</strong> {issue.fix}</p>
+                    {issue.affectedUrls && issue.affectedUrls.length > 0 && (
+                      <div className="mt-2 p-2 bg-white border rounded border-gray-200">
+                        <p className="text-[10px] text-gray-500 font-bold uppercase mb-1">Affected Pages ({issue.affectedUrls.length}):</p>
+                        <div className="font-mono text-[9px] text-purple-800 space-y-0.5 max-h-40 overflow-y-auto">
+                          {issue.affectedUrls.map((url, uidx) => (
+                            <div key={uidx}>{url}</div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           )}
 
