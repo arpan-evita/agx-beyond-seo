@@ -50,6 +50,8 @@ export interface AuditResults {
     score: string
     status: string
     statusType: 'success' | 'warning' | 'error' | 'info'
+    error?: string
+    fix?: string
   }[]
   growthModel?: {
     targetLeads: number

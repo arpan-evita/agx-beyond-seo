@@ -195,13 +195,62 @@ export async function GET(
             }
           ],
           categoryScores: [
-            { category: "Technical SEO", score: "55/100", status: "Needs Work", statusType: "warning" },
-            { category: "On-Page SEO", score: "60/100", status: "Needs Work", statusType: "warning" },
-            { category: "Local SEO", score: "45/100", status: "Critical Gap", statusType: "error" },
-            { category: "Content / E-E-A-T", score: "50/100", status: "Critical Gap", statusType: "error" },
-            { category: "Schema", score: "40/100", status: "Missing", statusType: "error" },
-            { category: "Backlinks / Authority", score: "Not verified", status: "Data Needed", statusType: "info" },
-            { category: "Conversion SEO", score: "50/100", status: "Needs Work", statusType: "warning" }
+            {
+              category: "Technical SEO",
+              score: "55/100",
+              status: "Needs Work",
+              statusType: "warning",
+              error: "robots.txt references a broken, non-existent sitemap URL (www. version path mismatch); a demo page /aa-demo-building/ is indexed by search engines.",
+              fix: "Update robots.txt to point to the correct sitemap (Sitemap: https://avcindia.co.in/sitemap.xml) and add a noindex tag or remove the /aa-demo-building/ path."
+            },
+            {
+              category: "On-Page SEO",
+              score: "60/100",
+              status: "Needs Work",
+              statusType: "warning",
+              error: "Homepage title tag has keyword stuffing (using superfluous superlatives like 'Best' and targeting both local and national intents in a single title).",
+              fix: "Change homepage title to: 'CA Firm in Gurgaon | AVC India - Accounting, GST & Tax Experts'. Move national intent targeting to dedicated sub-pages."
+            },
+            {
+              category: "Local SEO",
+              score: "45/100",
+              status: "Critical Gap",
+              statusType: "error",
+              error: "No dedicated service-location landing pages (e.g., /ca-firm-gurgaon/, /gst-registration-gurgaon/) targeting high-volume local intent search queries.",
+              fix: "Create individual landing pages for local services targeting Gurgaon micro-markets with H1 match, local NAP details, and localized testimonials."
+            },
+            {
+              category: "Content / E-E-A-T",
+              score: "50/100",
+              status: "Critical Gap",
+              statusType: "error",
+              error: "Service pages contain thin copy (<400 words) lacking deep explanations, pricing ranges, or FAQs; irregular blog publishing lacks topical content clusters.",
+              fix: "Expand key service pages to 1,200+ words including processes, timelines, FAQs, and CA credentials. Establish a weekly publishing schedule."
+            },
+            {
+              category: "Schema",
+              score: "40/100",
+              status: "Missing",
+              statusType: "error",
+              error: "No structured JSON-LD entity schema (AccountingService, LocalBusiness, FAQPage) detected in HTML source code to assist search crawlers.",
+              fix: "Inject Organization and LocalBusiness schema headers on the homepage, and deploy FAQPage schemas on informational resource pages."
+            },
+            {
+              category: "Backlinks / Authority",
+              score: "Not verified",
+              status: "Data Needed",
+              statusType: "info",
+              error: "Domain rating and external referral backlink catalog not verified due to lack of connected analytics integration.",
+              fix: "Connect Google Search Console and submit the correct sitemap.xml. Build 10-15 local listings on directories like Justdial, IndiaMART, and Sulekha."
+            },
+            {
+              category: "Conversion SEO",
+              score: "50/100",
+              status: "Needs Work",
+              statusType: "warning",
+              error: "No sticky call CTA or floating WhatsApp widget for instant mobile inquiries; missing reviews/social proof near primary homepage forms.",
+              fix: "Embed floating WhatsApp and call buttons at the bottom of the page. Display Google Business Profile customer review snippets near conversion forms."
+            }
           ],
           growthModel: {
             targetLeads: 50,
@@ -337,13 +386,62 @@ export async function GET(
             }
           ],
           categoryScores: [
-            { category: "Technical SEO", score: "65/100", status: "Needs Work", statusType: "warning" },
-            { category: "On-Page SEO", score: "70/100", status: "Optimal", statusType: "success" },
-            { category: "Local SEO", score: "60/100", status: "Needs Work", statusType: "warning" },
-            { category: "Content / E-E-A-T", score: "65/100", status: "Needs Work", statusType: "warning" },
-            { category: "Schema", score: "50/100", status: "Needs Work", statusType: "warning" },
-            { category: "Backlinks / Authority", score: "Not verified", status: "Data Needed", statusType: "info" },
-            { category: "Conversion SEO", score: "60/100", status: "Needs Work", statusType: "warning" }
+            {
+              category: "Technical SEO",
+              score: "65/100",
+              status: "Needs Work",
+              statusType: "warning",
+              error: "Missing fallback redirect configurations or sitemap link validation warnings present in site roots.",
+              fix: "Verify sitemap structure and configure 301 redirects for broken paths."
+            },
+            {
+              category: "On-Page SEO",
+              score: "70/100",
+              status: "Optimal",
+              statusType: "success",
+              error: "Title and description tags are present but lack keyword placement density on target product listings.",
+              fix: "Inject high-intent commercial keywords into main product page headings."
+            },
+            {
+              category: "Local SEO",
+              score: "60/100",
+              status: "Needs Work",
+              statusType: "warning",
+              error: "No localized location pages targeting city-specific micro-intent query terms.",
+              fix: "Deploy individual location landing pages targeting priority local markets."
+            },
+            {
+              category: "Content / E-E-A-T",
+              score: "65/100",
+              status: "Needs Work",
+              statusType: "warning",
+              error: "Some key landing pages contain less than 500 words of service detail copy.",
+              fix: "Expand page copy to 800+ words including service breakdowns and FAQ panels."
+            },
+            {
+              category: "Schema",
+              score: "50/100",
+              status: "Needs Work",
+              statusType: "warning",
+              error: "No LocalBusiness schema markup detected in HTML source logs.",
+              fix: "Inject structured LocalBusiness JSON-LD markup headers on the homepage."
+            },
+            {
+              category: "Backlinks / Authority",
+              score: "Not verified",
+              status: "Data Needed",
+              statusType: "info",
+              error: "Analytics platforms and search console index stats are not connected.",
+              fix: "Link Google Search Console to verify organic search impressions and sitemap indexation."
+            },
+            {
+              category: "Conversion SEO",
+              score: "60/100",
+              status: "Needs Work",
+              statusType: "warning",
+              error: "Lack of floating instant communication CTAs (WhatsApp, chat widgets) on mobile layouts.",
+              fix: "Embed floating call and messaging buttons to reduce conversion friction on mobile."
+            }
           ],
           growthModel: {
             targetLeads: 30,

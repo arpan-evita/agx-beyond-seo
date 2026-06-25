@@ -463,17 +463,19 @@ export default function AuditReportDetailPage() {
                       <table className="w-full text-left">
                         <thead className="bg-white/[0.02] text-gray-400 font-bold text-[10px] uppercase tracking-wider border-b border-white/5">
                           <tr>
-                            <th className="px-6 py-3">Category</th>
-                            <th className="px-6 py-3">Score</th>
-                            <th className="px-6 py-3">Status</th>
+                            <th className="px-6 py-3 min-w-[140px]">Category</th>
+                            <th className="px-6 py-3 min-w-[80px]">Score</th>
+                            <th className="px-6 py-3 min-w-[120px]">Status</th>
+                            <th className="px-6 py-3 min-w-[260px]">Main Issue / Blocker</th>
+                            <th className="px-6 py-3 min-w-[280px]">Actionable Solution</th>
                           </tr>
                         </thead>
                         <tbody className="divide-y divide-white/5 text-xs">
                           {report.results.categoryScores.map((c, i) => (
-                            <tr key={i} className="hover:bg-white/[0.01] transition-colors">
-                              <td className="px-6 py-3 font-semibold text-white">{c.category}</td>
-                              <td className="px-6 py-3 text-purple-300 font-bold">{c.score}</td>
-                              <td className="px-6 py-3">
+                            <tr key={i} className="hover:bg-white/[0.01] transition-colors align-top">
+                              <td className="px-6 py-4 font-semibold text-white">{c.category}</td>
+                              <td className="px-6 py-4 text-purple-300 font-bold">{c.score}</td>
+                              <td className="px-6 py-4">
                                 <span className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-bold text-[9px] border uppercase ${
                                   c.statusType === 'success' ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' :
                                   c.statusType === 'error' ? 'bg-red-500/10 text-red-400 border-red-500/20' :
@@ -482,6 +484,26 @@ export default function AuditReportDetailPage() {
                                 }`}>
                                   <span>{c.status}</span>
                                 </span>
+                              </td>
+                              <td className="px-6 py-4 text-[11px] text-gray-300 leading-relaxed">
+                                {c.error ? (
+                                  <>
+                                    <strong className="text-red-400/90 font-bold block md:inline mr-1">Issue:</strong>
+                                    {c.error}
+                                  </>
+                                ) : (
+                                  <span className="text-gray-500">—</span>
+                                )}
+                              </td>
+                              <td className="px-6 py-4 text-[11px] text-gray-300 leading-relaxed">
+                                {c.fix ? (
+                                  <>
+                                    <strong className="text-purple-300 font-bold block md:inline mr-1">Fix:</strong>
+                                    {c.fix}
+                                  </>
+                                ) : (
+                                  <span className="text-gray-500">—</span>
+                                )}
                               </td>
                             </tr>
                           ))}
@@ -823,6 +845,8 @@ export default function AuditReportDetailPage() {
                     <th className="border border-gray-300 px-4 py-2">Category</th>
                     <th className="border border-gray-300 px-4 py-2">Score</th>
                     <th className="border border-gray-300 px-4 py-2">Status</th>
+                    <th className="border border-gray-300 px-4 py-2">Main Blocker</th>
+                    <th className="border border-gray-300 px-4 py-2">Actionable Fix</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -831,6 +855,8 @@ export default function AuditReportDetailPage() {
                       <td className="border border-gray-300 px-4 py-2 font-semibold">{c.category}</td>
                       <td className="border border-gray-300 px-4 py-2 font-bold">{c.score}</td>
                       <td className="border border-gray-300 px-4 py-2">{c.status}</td>
+                      <td className="border border-gray-300 px-4 py-2 text-xs">{c.error || '—'}</td>
+                      <td className="border border-gray-300 px-4 py-2 text-xs">{c.fix || '—'}</td>
                     </tr>
                   ))}
                 </tbody>
