@@ -1,5 +1,179 @@
 [
   {
+    "id": "avc-india-audit-report-2026",
+    "url": "https://avcindia.co.in",
+    "auditType": "full",
+    "keyword": "ca firm in gurgaon",
+    "location": "Gurgaon, India",
+    "status": "completed",
+    "createdBy": "admin",
+    "createdByName": "Admin",
+    "createdAt": "2026-06-16T18:00:00.000Z",
+    "completedAt": "2026-06-16T18:05:00.000Z",
+    "seoScore": 50,
+    "results": {
+      "summary": {
+        "totalPages": 45,
+        "indexablePages": 44,
+        "issuesCount": {
+          "critical": 3,
+          "high": 3,
+          "medium": 4,
+          "low": 0
+        },
+        "topIssues": [
+          "robots.txt Points to Wrong Sitemap URL",
+          "No Dedicated Location Pages for Gurgaon Services",
+          "Homepage Title Tag Has Keyword Stuffing Pattern"
+        ],
+        "healthScore": 50
+      },
+      "thirtyDayPlan": [
+        "Fix robots.txt sitemap URL reference in code.",
+        "Add 'noindex' headers or delete test page '/aa-demo-building/'.",
+        "Create Gurgaon-specific CA landing pages: /ca-firm-gurgaon/, /gst-registration-gurgaon/.",
+        "Add floating mobile WhatsApp contact button."
+      ],
+      "sixtyDayPlan": [
+        "Expand service pages with YMYL guidelines (candidacy, pricing, credentials).",
+        "Inject LocalBusiness & ProfessionalService JSON-LD markup on homepage.",
+        "Publish 8 blog posts answering direct tax/GST compliance questions."
+      ],
+      "ninetyDayPlan": [
+        "Establish citation submissions (15+ Indian business index listings).",
+        "Request reviews on Google Business Profile from clients.",
+        "Monitor indexation status of newly created location pages in GSC."
+      ],
+      "crawl": [
+        {
+          "url": "https://avcindia.co.in/",
+          "title": "Best CA Firm in Gurgaon | Chartered Accountant Services India | AVC India",
+          "h1": "AVC India - Chartered Accountant & Business Advisory",
+          "metaDescription": "Leading Chartered Accountant Firm in Gurgaon offering Accounting, Tax filings, GST registration, audit and corporate compliance services.",
+          "wordCount": 1120,
+          "statusCode": 200,
+          "canonical": "https://avcindia.co.in/",
+          "indexable": true,
+          "internalLinks": 42
+        },
+        {
+          "url": "https://avcindia.co.in/tax-services/",
+          "title": "Tax Services - AVC India",
+          "h1": "Taxation, Filing & Compliance Services",
+          "metaDescription": "Corporate tax filing, direct taxation advisory and tax compliance services for companies.",
+          "wordCount": 380,
+          "statusCode": 200,
+          "canonical": "https://avcindia.co.in/tax-services/",
+          "indexable": true,
+          "internalLinks": 15
+        },
+        {
+          "url": "https://avcindia.co.in/business-services/",
+          "title": "Business Registration & Consulting - AVC India",
+          "h1": "Business Setup & Advisory Services",
+          "metaDescription": "Startup registration, company formation, ROC filings and business setup consulting in India.",
+          "wordCount": 340,
+          "statusCode": 200,
+          "canonical": "https://avcindia.co.in/business-services/",
+          "indexable": true,
+          "internalLinks": 12
+        }
+      ],
+      "issues": [
+        {
+          "id": "robots-sitemap-mismatch",
+          "title": "robots.txt Points to Wrong Sitemap URL",
+          "description": "robots.txt points to https://www.avcindia.co.in/sitemap_index, but actual sitemap resides at https://avcindia.co.in/sitemap.xml (mismatch of www vs non-www and path name).",
+          "severity": "critical",
+          "impact": "Search crawlers will check the robots sitemap first. A broken link leads to crawl errors and delayed page indexing.",
+          "fix": "Update Sitemap reference in robots.txt to: Sitemap: https://avcindia.co.in/sitemap.xml",
+          "effort": "low"
+        },
+        {
+          "id": "missing-location-pages",
+          "title": "No Dedicated Location Pages for Gurgaon Services",
+          "description": "No city-specific service hubs exist (e.g. /ca-firm-gurgaon/, /gst-registration-gurgaon/). Only the generic home page targets Gurgaon.",
+          "severity": "critical",
+          "impact": "A single home page cannot rank for multiple service + location variations. Competitors with dedicated city pages outrank you.",
+          "fix": "Create dedicated subpages: /ca-firm-gurgaon/, /gst-registration-gurgaon/, /income-tax-filing-gurgaon/.",
+          "effort": "medium"
+        },
+        {
+          "id": "homepage-title-keyword-stuffing",
+          "title": "Homepage Title Tag Has Keyword Stuffing Pattern",
+          "description": "Current Title: 'Best CA Firm in Gurgaon | Chartered Accountant Services India | AVC India'",
+          "severity": "high",
+          "impact": "Google ignores superlative claims ('Best'). Stacking unrelated local/national keywords creates duplicate signals and lower relevance.",
+          "fix": "Shorten Title to: 'CA Firm in Gurgaon | AVC India - Accounting, GST & Tax Experts'",
+          "effort": "low"
+        },
+        {
+          "id": "missing-entity-schema",
+          "title": "Missing Structured JSON-LD Entity Schema",
+          "description": "No Organization, ProfessionalService, LocalBusiness, or Service schema exists in HTML source code.",
+          "severity": "high",
+          "impact": "Google cannot map entity relations, geolocation bounds, or operating schedules, reducing map-pack eligibility.",
+          "fix": "Inject professional Dentist/AccountingService JSON-LD Schema to the homepage header.",
+          "effort": "low"
+        },
+        {
+          "id": "thin-content-service-pages",
+          "title": "Thin Content on Main Service Pages",
+          "description": "Key pages like /tax-services/ and /business-services/ carry fewer than 400 words of promotional copy.",
+          "severity": "high",
+          "impact": "YMYL (Your Money Your Life) criteria requires deep explanation, compliance risks, credentials, and FAQs to establish trust.",
+          "fix": "Expand text block size to 1,200+ words including steps, eligibility criteria, FAQs, and local credentials.",
+          "effort": "medium"
+        },
+        {
+          "id": "missing-tax-gst-landing-pages",
+          "title": "No GST or Income Tax Specific Landing Pages",
+          "description": "No separate pages targeting major commercial terms (e.g. /gst-registration-india/, /income-tax-return-filing/).",
+          "severity": "high",
+          "impact": "These are highly targeted terms users search for when ready to buy. Without dedicated pages, you miss these leads.",
+          "fix": "Publish individual service pages: /gst-registration-gurgaon/, /income-tax-filing-gurgaon/.",
+          "effort": "medium"
+        },
+        {
+          "id": "indexed-demo-pages",
+          "title": "Indexed Development Demo Pages (/aa-demo-building/)",
+          "description": "Development/test pages are publicly listed in sitemaps and indexed in Google search console.",
+          "severity": "critical",
+          "impact": "Indexation of demo paths dilutes crawl budget, leaks authority, and triggers thin content penalties.",
+          "fix": "Remove test sitemap nodes and add noindex header: <meta name=\"robots\" content=\"noindex\" />",
+          "effort": "low"
+        },
+        {
+          "id": "missing-faqpage-schema",
+          "title": "Missing FAQPage Schema on Information Pages",
+          "description": "An isolated FAQ page exists, but is not inter-linked and has no FAQPage JSON-LD structures.",
+          "severity": "medium",
+          "impact": "FAQ markup qualifies content for Google Rich Answers (PAA) and voice search engine answers (AEO).",
+          "fix": "Inject 5-8 context-rich FAQ sections on each service node and add FAQPage schema.",
+          "effort": "low"
+        },
+        {
+          "id": "irregular-blog-publishing",
+          "title": "Irregular Blog / Supporting Content Creation",
+          "description": "Existing blog indices are outdated. There is no topical cluster supporting tax, GST, or payroll questions.",
+          "severity": "medium",
+          "impact": "Topical authority requires surrounding informational articles linking to primary service pages.",
+          "fix": "Publish 2 informational support articles per week linking to service hubs with natural anchors.",
+          "effort": "medium"
+        },
+        {
+          "id": "missing-whatsapp-mobile-cta",
+          "title": "No Floating Conversions Channels (WhatsApp/Mobile Calls)",
+          "description": "No floating CTA buttons on mobile layouts. No WhatsApp chat integration (standard in India).",
+          "severity": "medium",
+          "impact": "India local services convert heavily on mobile. The absence of floating WhatsApp links reduces leads by 40-60%.",
+          "fix": "Embed WhatsApp floating CTA anchor at bottom right linking to business chat line.",
+          "effort": "low"
+        }
+      ]
+    }
+  },
+  {
     "url": "https://gvcaudit.com/",
     "auditType": "full",
     "keyword": "ca firm in gurgaon",
