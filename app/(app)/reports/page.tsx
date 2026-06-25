@@ -60,9 +60,12 @@ export default function ReportsPage() {
       if (res.ok) {
         setReports(prev => prev.filter(r => r.id !== id))
         triggerNotify(`Report for ${url} deleted successfully.`)
+      } else {
+        const errData = await res.json().catch(() => ({}))
+        alert(`Failed to delete report: ${errData.error || res.statusText || 'Server Error'}`)
       }
-    } catch {
-      alert('Failed to delete report.')
+    } catch (err: any) {
+      alert(`Failed to delete report: ${err?.message || 'Network error'}`)
     }
   }
 
